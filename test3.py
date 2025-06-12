@@ -1,5 +1,5 @@
 
-inp_str = "GeeksforGeeks"
+inp_str = "Geekss"
 
 freq = {} 
   
