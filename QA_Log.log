@@ -1,0 +1,62 @@
+2025-06-17 20:28:38 - INFO - File contain records and not empty and table structure like columns are matching
+2025-06-17 20:28:38 - ERROR - \u274c Duplicate transaction_id present in file
+2025-06-17 20:28:38 - ERROR - \u274c Null Records are present in transaction_date and transaction_id
+2025-06-17 20:28:38 - ERROR - \u274c Some amounts are negative
+2025-06-17 20:28:38 - INFO - \u2705 All expected columns are present.
+2025-06-17 20:29:24 - INFO - File contain records and not empty and table structure like columns are matching
+2025-06-17 20:29:24 - ERROR - \u274c Duplicate transaction_id present in file
+2025-06-17 20:29:24 - ERROR - \u274c Null Records are present in transaction_date and transaction_id
+2025-06-17 20:29:24 - ERROR - \u274c Some amounts are negative
+2025-06-17 20:29:24 - INFO - \u2705 All expected columns are present.
+2025-06-17 20:31:54 - INFO - File contain records and not empty and table structure like columns are matching
+2025-06-17 20:31:54 - ERROR - \u274c Duplicate transaction_id present in file
+2025-06-17 20:31:54 - ERROR - \u274c Null Records are present in transaction_date and transaction_id
+2025-06-17 20:31:54 - INFO - \u2705 All expected columns are present.
+2025-06-17 21:06:40 - INFO - Incremental records are present
+2025-06-17 21:06:40 - INFO - File contain records and not empty and table structure like columns are matching
+2025-06-17 21:06:40 - ERROR - \u274c Duplicate transaction_id present in file
+2025-06-17 21:06:40 - ERROR - \u274c Null Records are present in transaction_date and transaction_id
+2025-06-17 21:06:40 - INFO - \u2705 All expected columns are present.
+2025-06-17 21:13:52 - INFO - Incremental records are matching
+2025-06-17 21:13:52 - INFO - Incremental records are present
+2025-06-17 21:13:52 - INFO - File contain records and not empty and table structure like columns are matching
+2025-06-17 21:13:52 - ERROR - \u274c Duplicate transaction_id present in file
+2025-06-17 21:13:52 - ERROR - \u274c Null Records are present in transaction_date and transaction_id
+2025-06-17 21:13:52 - INFO - \u2705 All expected columns are present.
+2025-06-17 21:27:09 - INFO - There i no overapping
+2025-06-17 21:27:09 - INFO - Incremental record count are matching
+2025-06-17 21:27:09 - INFO - Incremental records are present
+2025-06-17 21:27:09 - INFO - File contain records and not empty and table structure like columns are matching
+2025-06-17 21:27:09 - ERROR - \u274c Duplicate transaction_id present in file
+2025-06-17 21:27:09 - ERROR - \u274c Null Records are present in transaction_date and transaction_id
+2025-06-17 21:27:09 - INFO - \u2705 All expected columns are present.
+2025-06-17 21:54:51 - ERROR - \u274c Test failed: 3 duplicate rows were added!
+2025-06-17 21:54:51 - INFO - There i no overapping
+2025-06-17 21:54:51 - INFO - Incremental record count are matching
+2025-06-17 21:54:51 - INFO - Incremental records are present
+2025-06-17 21:54:51 - INFO - File contain records and not empty and table structure like columns are matching
+2025-06-17 21:54:51 - ERROR - \u274c Duplicate transaction_id present in file
+2025-06-17 21:54:51 - ERROR - \u274c Null Records are present in transaction_date and transaction_id
+2025-06-17 21:54:51 - INFO - \u2705 All expected columns are present.
+2025-06-17 23:57:42 - ERROR - \u274c Test failed: 3 duplicate rows were added!
+2025-06-17 23:57:42 - INFO - There i no overapping
+2025-06-17 23:57:42 - INFO - Incremental record count are matching
+2025-06-17 23:57:42 - INFO - Incremental records are present
+2025-06-17 23:57:42 - INFO - File contain records and not empty and table structure like columns are matching
+2025-06-17 23:57:42 - ERROR - \u274c Duplicate transaction_id present in file
+2025-06-17 23:57:42 - ERROR - \u274c Null Records are present in transaction_date and transaction_id
+2025-06-17 23:57:42 - INFO - \u2705 All expected columns are present.
+2025-06-18 15:51:13 - ERROR - \u274c Test failed: 3 duplicate rows were added!
+2025-06-18 15:51:13 - INFO - There i no overapping
+2025-06-18 15:51:13 - INFO - Incremental record count are matching
+2025-06-18 15:51:45 - ERROR - \u274c Test failed: 3 duplicate rows were added!
+2025-06-18 15:51:45 - INFO - There i no overapping
+2025-06-18 15:51:45 - INFO - Incremental record count are matching
+2025-06-18 15:52:19 - ERROR - \u274c Test failed: 3 duplicate rows were added!
+2025-06-18 15:52:19 - INFO - There i no overapping
+2025-06-18 15:52:19 - INFO - Incremental record count are matching
+2025-06-18 15:52:19 - INFO - Incremental records are present
+2025-06-18 15:52:19 - INFO - File contain records and not empty and table structure like columns are matching
+2025-06-18 15:52:19 - ERROR - \u274c Duplicate transaction_id present in file
+2025-06-18 15:52:19 - ERROR - \u274c Null Records are present in transaction_date and transaction_id
+2025-06-18 15:52:19 - INFO - \u2705 All expected columns are present.
