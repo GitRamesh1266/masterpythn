@@ -1,0 +1,80 @@
+# validate_transactions.py
+
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col, to_date
+import logging
+
+# Setup Logging
+logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
+
+# Start Spark Session
+spark = SparkSession.builder.appName("TransactionDataValidation").getOrCreate()
+
+# Load CSV
+df = spark.read.option("header", True).csv("transaction_data.csv")
+
+# Basic Transformations
+df = df.withColumn("transaction_date", 
+                   to_date(col("transaction_date"), "yyyy-MM-dd")) \
+       .filter(col("amount").cast("double").isNotNull()) \
+       .withColumn("amount", col("amount").cast("double"))
+
+# Show transformed data
+df.show()
+
+# Data Validations
+def test_transaction_date_format():
+    invalid_dates = df.filter(col("transaction_date").isNull()).count()
+    assert invalid_dates == 0, f"Found {invalid_dates} invalid transaction dates"
+    logging.info("✅ test_transaction_date_format passed.")
+
+def test_valid_amounts():
+    negative_amounts = df.filter(col("amount") < 0).count()
+    assert negative_amounts == 0, f"Found {negative_amounts} transactions with negative amount"
+    logging.info("✅ test_valid_amounts passed.")
+
+def test_row_count(expected_count):
+    actual_count = df.count()
+    assert actual_count == expected_count, f"Row count mismatch: expected {expected_count}, got {actual_count}"
+    logging.info("✅ test_row_count passed.")
+
+# Run tests (manually or through PyTest)
+if __name__ == "__main__":
+    test_transaction_date_format()
+    test_valid_amounts()
+    test_row_count(expected_count=100)  # Change 100 to your expected count
+    
+    
+    def load_data():
+    """Fixture to load raw and silver data for all tests."""
+    raw_df = pd.read_csv(RAW_FILE, parse_dates=["transaction_date"])
+    silver_df = pd.read_csv(SILVER_FILE, parse_dates=["transaction_date"])
+    return raw_df, silver_df
+
+def test_schema_validation(load_data):
+    """Ensure required columns are present in raw and silver."""
+    raw_df, silver_df = load_data
+    assert REQUIRED_COLUMNS.issubset(raw_df.columns), "Raw file missing required columns"
+    assert REQUIRED_COLUMNS.issubset(silver_df.columns), "Silver file missing required columns"
+
+def test_max_transaction_date(load_data):
+    raw_df, silver_df = load_data
+    assert raw_df["transaction_date"].max() >= silver_df["transaction_date"].max()
+
+def test_incremental_row_count(load_data):
+    raw_df, silver_df = load_data
+    new_rows = raw_df[~raw_df["transaction_id"].isin(silver_df["transaction_id"])]
+    expected_new = len(new_rows)
+
+    combined = pd.concat([silver_df, new_rows]).drop_duplicates(subset="transaction_id")
+    actual_new = len(combined) - len(silver_df)
+
+    assert actual_new == expected_new, f"Expected {expected_new}, got {actual_new} new rows"
+
+def test_duplicate_data_prevention(load_data):
+    raw_df, silver_df = load_data
+    overlapping = set(raw_df["transaction_id"]).intersection(set(silver_df["transaction_id"]))
+    assert len(overlapping) == 0, f"Duplicate transaction_ids found: {overlapping}"
+
+def test_checksum_comparison(load_data):
+    raw_df, silver_df = load_data

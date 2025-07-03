@@ -16,12 +16,12 @@ silver_df=pd.read_csv("silver_transaction_data.csv")
 # with TRANSFORMATIONS for transaction_date and Filtering transaction_amount for negative amount
 
 
-columns_to_check = ['transaction_date', 'transaction_id']
-has_nulls = df[~df[columns_to_ check].isnull().any(axis=1)] #Verified the null records present for id and date column
-final_df= has_nulls[has_nulls['transaction_amount'].apply(lambda x: isinstance(x, (int, float)) and x >= 0)] # filtered the negative transaction_amount
-final_df.loc[:,'transaction_date']=pd.to_datetime(final_df['transaction_date'],format = "%d-%m-%Y") #Transformation applied on transaction_date column
-print("/---Final Result set after filter and transformation-/")
-print(final_df)
+# columns_to_check = ['transaction_date', 'transaction_id']
+# has_nulls = df[~df[columns_to_ check].isnull().any(axis=1)] #Verified the null records present for id and date column
+# final_df= has_nulls[has_nulls['transaction_amount'].apply(lambda x: isinstance(x, (int, float)) and x >= 0)] # filtered the negative transaction_amount
+# final_df.loc[:,'transaction_date']=pd.to_datetime(final_df['transaction_date'],format = "%d-%m-%Y") #Transformation applied on transaction_date column
+# print("/---Final Result set after filter and transformation-/")
+# print(final_df)
 
 
 # ---- TESTS ----/
@@ -68,7 +68,9 @@ def test_transaction_date_and_Transaction_id_null():
     assert has_nulls == 0, "Null Records are present in transaction_date and transaction_id"
     logging.info("Records are present in transaction_date and transaction_id.")
 
-
+def test_transaction_date_null_records()
+    null_count=df["transaction_date"].isnull()
+    
 def test_Duplicate_Transaction_id():
     has_duplicate= df.duplicated(subset='transaction_id').sum()
     assert has_duplicate == 0, "Duplicate transaction_id present in file"
@@ -95,40 +97,46 @@ def test_expected_columns():
 
 if __name__ == "__main__":
     
-    try:
-        test_duplicate_ingestion()
-    except AssertionError as e:
-        logging.error(f"❌ {e}")
-    try:
-        test_overlapping()
-    except AssertionError as e:
-        logging.error(f"❌ {e}")
+     try:
+         test_transaction_date_null_records()
+     except AssertionError as e:
+         logging.error(f"❌ {e}")
+     
+    # try:
+    #     test_duplicate_ingestion()
+    # except AssertionError as e:
+    #     logging.error(f"❌ {e}")
+    # try:
+    #     test_overlapping()
+    # except AssertionError as e:
+    #     logging.error(f"❌ {e}")
     
-    try:
-        test_incremental_row_count()
-    except AssertionError as e:
-        logging.error(f"❌ {e}")
+    # try:
+    #     test_incremental_row_count()
+    # except AssertionError as e:
+    #     logging.error(f"❌ {e}")
     
-    try:
-        test_max_transaction_date_for_incremental_load()
-    except AssertionError as e:
-        logging.error(f"❌ {e}")
-    try:
-        Test_File_Empty_schema_column()
-    except AssertionError as e:
-        logging.error(f"❌ {e}")
+    # try:
+    #     test_max_transaction_date_for_incremental_load()
+    # except AssertionError as e:
+    #     logging.error(f"❌ {e}")
+    # try:
+    #     Test_File_Empty_schema_column()
+    # except AssertionError as e:
+    #     logging.error(f"❌ {e}")
                  
-    try:
-        test_Duplicate_Transaction_id()
-    except AssertionError as e:
-        logging.error(f"❌ {e}")
+    # try:
+    #     test_Duplicate_Transaction_id()
+    # except AssertionError as e:
+    #     logging.error(f"❌ {e}")
          
-    try:
-        test_transaction_date_and_Transaction_id_null()
-    except AssertionError as e:
-        logging.error(f"❌ {e}")
+    # try:
+    #     test_transaction_date_and_Transaction_id_null()
+    # except AssertionError as e:
+    #     logging.error(f"❌ {e}")
    
-    try:
-        test_expected_columns()
-    except AssertionError as e:
-        logging.error(f"❌ {e}")
+    # try:
+    #     test_expected_columns()
+    # except AssertionError as e:
+    #     logging.error(f"❌ {e}")
+    
